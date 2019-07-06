@@ -74,6 +74,9 @@ class YxAreaSelect {
         this.setting.defCity = option.defCity || '';
         this.setting.defArea = option.defArea || ''
         this.setting.defChoose = option.defChoose || '请选择';
+        this.setting.provinceName = option.provinceName || '';
+        this.setting.cityName = option.cityName || '';
+        this.setting.areaName = option.areaName || '';
     }
     getProvince(){
         return this.setting.mode == 'value' ? this.getDomValue(this.provinceDom):this.getDomCode(this.provinceDom);
@@ -89,7 +92,7 @@ class YxAreaSelect {
      */
     createSelectBody(){
         let html = '';
-        let province = `<select class='yx-area-select-province'><option>${this.setting.defChoose}</option>`;
+        let province = `<select name='${this.setting.provinceName}' class='yx-area-select-province'><option>${this.setting.defChoose}</option>`;
         let data = AREADATA[100000];
         let defProvinceCode;
         let defCityCode;
@@ -111,7 +114,7 @@ class YxAreaSelect {
         let city;
         if(defProvinceCode != undefined){
             data = AREADATA[defProvinceCode];
-            city = `<select class='yx-area-select-city'><option>${this.setting.defChoose}</option>`;
+            city = `<select name='${this.setting.cityName}' class='yx-area-select-city'><option>${this.setting.defChoose}</option>`;
             for (const key in data) {
                 let selected = '';
                 if(this.setting.defCity.length > 0){
@@ -127,13 +130,13 @@ class YxAreaSelect {
             }
             city += '</select>';
         }else{
-            city = `<select class='yx-area-select-city'><option>${this.setting.defChoose}</option></select>`;
+            city = `<select name='${this.setting.cityName}' class='yx-area-select-city'><option>${this.setting.defChoose}</option></select>`;
         }
 
         let area;
         if(defCityCode != undefined){
             data = AREADATA[defCityCode];
-            area = `<select class='yx-area-select-area'><option>${this.setting.defChoose}</option>`;
+            area = `<select name='${this.setting.areaName}' class='yx-area-select-area'><option>${this.setting.defChoose}</option>`;
             for (const key in data) {
                 let selected = '';
                 if(this.setting.defArea.length > 0){
@@ -147,7 +150,7 @@ class YxAreaSelect {
             }
             area += '</select>';
         }else{
-            area = `<select class='yx-area-select-city'><option>${this.setting.defChoose}</option></select>`;
+            area = `<select name='${this.setting.areaName}' class='yx-area-select-city'><option>${this.setting.defChoose}</option></select>`;
         }
         html+=province+city+area;
         return html; 
