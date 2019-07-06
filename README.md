@@ -15,14 +15,16 @@ Js地区三级联动
 #### 使用说明
 
 ```
-
- var select = new YxAreaSelect({
-            elem:'#area',
-            mode:'code',
-            defProvince:'370000',
-            defCity:'370100',
-            defArea:'370112'
-        });
+var select = new YxAreaSelect({
+    elem:'#area',
+    mode:'code',
+    defProvince:'370000',
+    defCity:'370100',
+    defArea:'370112',
+    provinceName:'province',
+    cityName:'city',
+    areaName:'area'
+});
 ```
 以上代码创建一个三级联动的省市区选择器,
 可以使用以下代码获取地址
@@ -37,7 +39,8 @@ select.getArea();
 ```
 参数 mode:'' 取值范围 code,value
 如为code时,默认数据,和get方法返回的均为code反之则为value
-
+参数:defXXX为默认数据,需根据mode的类型来设置数据
+参数XXXName为select的name属性
 
 #### 参与贡献
 
