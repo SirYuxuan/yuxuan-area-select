@@ -14,7 +14,7 @@ Js地区三级联动
 
 #### 使用说明
 
-```
+```javascript
 var select = new YxAreaSelect({
     elem:'#area',
     mode:'code',
@@ -29,7 +29,7 @@ var select = new YxAreaSelect({
 以上代码创建一个三级联动的省市区选择器,
 可以使用以下代码获取地址
 
-```
+```javascript
 //返回省
 select.getProvince();
 //返回市
